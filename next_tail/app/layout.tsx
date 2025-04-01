@@ -1,5 +1,18 @@
-import { Metadata } from "next"
-import "./global.css"
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import { ErrorWrapper } from "./error-wrapper";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 export const metadata:Metadata = {
   title: {
     default: 'Next.js Tutorial',
@@ -16,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
       <header
           style={{
             backgroundColor: "lightblue",
@@ -25,7 +38,8 @@ export default function RootLayout({
         >
           <p>Header</p>
         </header>
-        {children}
+        <ErrorWrapper>{children}</ErrorWrapper>
+        
         <footer
           style={{
             backgroundColor: "ghostwhite",

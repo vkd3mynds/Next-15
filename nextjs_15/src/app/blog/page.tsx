@@ -1,8 +1,9 @@
-import React from 'react'
+import { Metadata } from "next"
+export const metadata:Metadata = {
+  title:"Blog"
+}
 
-type Props = {}
-
-export default function Blog  (props: Props) {
+export default function Blog  () {
   return (
     <h1>My Blog</h1>
   )
